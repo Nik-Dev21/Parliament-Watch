@@ -1,0 +1,492 @@
+{
+  "C-2": {
+    "summary": "This bill aims to address security measures related to the border between Canada and the United States. It also deals with other security-related issues.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act respecting certain measures relating to the security of the border between Canada and the United States and respecting other related security measures"
+  },
+  "C-4": {
+    "summary": "This bill focuses on implementing certain affordability measures for Canadians and introduces another, unspecified measure.",
+    "status_code": "HouseAt3rdReading",
+    "name": "An Act respecting certain affordability measures for Canadians and another measure"
+  },
+  "C-3": {
+    "summary": "This bill proposes changes to the Citizenship Act, specifically in the year 2025.",
+    "status_code": "RoyalAssentAwaiting",
+    "name": "An Act to amend the Citizenship Act (2025)"
+  },
+  "C-5": {
+    "summary": "This bill seeks to enact the Free Trade and Labour Mobility in Canada Act and the Building Canada Act.",
+    "status_code": "RoyalAssentGiven",
+    "name": "An Act to enact the Free Trade and Labour Mobility in Canada Act and the Building Canada Act"
+  },
+  "C-6": {
+    "summary": "This bill is for granting funds to the government for public administration expenses for the fiscal year ending March 31, 2026.",
+    "status_code": "RoyalAssentGiven",
+    "name": "An Act for granting to His Majesty certain sums of money for the federal public administration for the fiscal year ending March 31, 2026"
+  },
+  "C-7": {
+    "summary": "This bill is for granting funds to the government for public administration expenses for the fiscal year ending March 31, 2026.",
+    "status_code": "RoyalAssentGiven",
+    "name": "An Act for granting to His Majesty certain sums of money for the federal public administration for the fiscal year ending March 31, 2026"
+  },
+  "C-8": {
+    "summary": "This bill addresses cyber security and proposes amendments to the Telecommunications Act, along with consequential amendments to other Acts.",
+    "status_code": "HouseInCommittee",
+    "name": "An Act respecting cyber security, amending the Telecommunications Act and making consequential amendments to other Acts"
+  },
+  "C-10": {
+    "summary": "This bill pertains to the Commissioner for Modern Treaty Implementation.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act respecting the Commissioner for Modern Treaty Implementation"
+  },
+  "C-9": {
+    "summary": "This bill aims to amend the Criminal Code regarding hate propaganda, hate crimes, and access to religious or cultural places.",
+    "status_code": "HouseInCommittee",
+    "name": "An Act to amend the Criminal Code (hate propaganda, hate crime and access to religious or cultural places)"
+  },
+  "C-11": {
+    "summary": "This bill proposes amendments to the National Defence Act and other Acts.",
+    "status_code": "HouseInCommittee",
+    "name": "An Act to amend the National Defence Act and other Acts"
+  },
+  "C-13": {
+    "summary": "This bill aims to implement the agreement regarding the United Kingdom's accession to the Comprehensive and Progressive Agreement for Trans-Pacific Partnership.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to implement the Protocol on the Accession of the United Kingdom of Great Britain and Northern Ireland to the Comprehensive and Progressive Agreement for Trans-Pacific Partnership"
+  },
+  "C-14": {
+    "summary": "This bill seeks to amend the Criminal Code, the Youth Criminal Justice Act, and the National Defence Act, specifically concerning bail and sentencing.",
+    "status_code": "HouseInCommittee",
+    "name": "An Act to amend the Criminal Code, the Youth Criminal Justice Act and the National Defence Act (bail and sentencing)"
+  },
+  "C-12": {
+    "summary": "This bill focuses on measures to secure Canada's borders, protect the integrity of the immigration system, and address related security concerns.",
+    "status_code": "HouseInCommittee",
+    "name": "An Act respecting certain measures relating to the security of Canada's borders and the integrity of the Canadian immigration system and respecting other related security measures"
+  },
+  "S-2": {
+    "summary": "This bill aims to amend the Indian Act by addressing new entitlements for registration.",
+    "status_code": "SenateInCommittee",
+    "name": "An Act to amend the Indian Act (new registration entitlements)"
+  },
+  "C-15": {
+    "summary": "This bill is for implementing specific provisions outlined in the budget that was tabled in Parliament on November 4, 2025.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to implement certain provisions of the budget tabled in Parliament on November 4, 2025"
+  },
+  "S-3": {
+    "summary": "This bill proposes amendments to the Weights and Measures Act, the Electricity and Gas Inspection Act, and their respective regulations.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Weights and Measures Act, the Electricity and Gas Inspection Act, the Weights and Measures Regulations and the Electricity and Gas Inspection Regulations"
+  },
+  "C-203": {
+    "summary": "This bill recognizes the month of Ukrainian heritage in Canada.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act respecting Ukrainian Heritage Month"
+  },
+  "C-202": {
+    "summary": "This bill seeks to amend the Department of Foreign Affairs, Trade and Development Act, specifically in relation to supply management.",
+    "status_code": "RoyalAssentGiven",
+    "name": "An Act to amend the Department of Foreign Affairs, Trade and Development Act (supply management)"
+  },
+  "C-204": {
+    "summary": "This bill proposes amendments to the Income Tax Act to provide a tax credit for volunteer firefighters and search and rescue volunteers.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Income Tax Act (volunteer firefighting and search and rescue volunteer tax credit)"
+  },
+  "C-201": {
+    "summary": "This bill seeks to amend the Canada Health Act to include mental health, addictions, and substance use health services.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Canada Health Act (mental, addictions and substance use health services)"
+  },
+  "C-205": {
+    "summary": "This bill proposes amendments to the National Housing Strategy Act.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the National Housing Strategy Act"
+  },
+  "C-209": {
+    "summary": "This bill seeks to establish Albanian Heritage Month in Canada.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to establish Albanian Heritage Month"
+  },
+  "C-207": {
+    "summary": "This bill proposes amendments to the Canada Pension Plan.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Canada Pension Plan"
+  },
+  "C-208": {
+    "summary": "This bill aims to recognize a national livestock brand as a symbol of Canada and of its western and frontier heritage.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to recognize a national livestock brand as a symbol of Canada and of western and frontier heritage"
+  },
+  "C-206": {
+    "summary": "This bill seeks to establish a national strategy to address brain injuries.",
+    "status_code": "Introduced",
+    "name": "An Act to establish a national strategy on brain injuries"
+  },
+  "C-211": {
+    "summary": "This bill proposes amendments to the Income Tax Act and the Canada Pension Plan by introducing a deeming provision.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Income Tax Act and the Canada Pension Plan (deeming provision)"
+  },
+  "C-214": {
+    "summary": "This bill focuses on the development of a national renewable energy strategy.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act respecting the development of a national renewable energy strategy"
+  },
+  "C-212": {
+    "summary": "This bill aims to establish the Office of the Ombud for the Department of Citizenship and Immigration and make related changes to other Acts.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to establish the Office of the Ombud for the Department of Citizenship and Immigration and to make related and consequential amendments to other Acts"
+  },
+  "C-210": {
+    "summary": "This bill proposes to amend the Constitution Act, 1867, regarding the oath of office.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Constitution Act, 1867 (oath of office)"
+  },
+  "C-213": {
+    "summary": "This bill aims to amend the Immigration and Refugee Protection Act regarding the cessation of refugee protection.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Immigration and Refugee Protection Act (cessation of refugee protection)"
+  },
+  "C-219": {
+    "summary": "This bill seeks to amend several Acts, including the Department of Foreign Affairs, Trade and Development Act and the Special Economic Measures Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Department of Foreign Affairs, Trade and Development Act, the Justice for Victims of Corrupt Foreign Officials Act (Sergei Magnitsky Law), the Special Economic Measures Act and the Broadcasting Act"
+  },
+  "C-216": {
+    "summary": "This bill aims to enact the Protection of Minors in the Digital Age Act and make amendments to two other Acts.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to enact the Protection of Minors in the Digital Age Act and to amend two Acts"
+  },
+  "C-215": {
+    "summary": "This bill proposes amendments to the Marine Liability Act, specifically regarding a national strategy for pollution caused by shipping container spills.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Marine Liability Act (national strategy respecting pollution caused by shipping container spills)"
+  },
+  "C-218": {
+    "summary": "This bill seeks to amend the Criminal Code regarding medical assistance in dying.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code (medical assistance in dying)"
+  },
+  "C-217": {
+    "summary": "This bill proposes amendments to the Canada Student Financial Assistance Act and the Income Tax Act.",
+    "status_code": "Introduced",
+    "name": "An Act to amend the Canada Student Financial Assistance Act and the Income Tax Act"
+  },
+  "C-222": {
+    "summary": "This bill aims to amend the Employment Insurance Act and the Canada Labour Code concerning the death of a child.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Employment Insurance Act and the Canada Labour Code (death of a child)"
+  },
+  "C-220": {
+    "summary": "This bill seeks to amend the Criminal Code regarding immigration status in sentencing.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code (immigration status in sentencing)"
+  },
+  "C-224": {
+    "summary": "This bill proposes amendments to the Food and Drugs Act regarding natural health products.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Food and Drugs Act (natural health products)"
+  },
+  "C-221": {
+    "summary": "This bill aims to amend the Corrections and Conditional Release Act concerning the disclosure of information to victims.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Corrections and Conditional Release Act (disclosure of information to victims)"
+  },
+  "C-223": {
+    "summary": "This bill proposes amendments to the Divorce Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Divorce Act"
+  },
+  "C-227": {
+    "summary": "This bill seeks to establish a national strategy on housing for young Canadians.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to establish a national strategy on housing for young Canadians"
+  },
+  "C-229": {
+    "summary": "This bill aims to establish a national framework respecting attention deficit hyperactivity disorder.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to establish a national framework respecting attention deficit hyperactivity disorder"
+  },
+  "C-226": {
+    "summary": "This bill seeks to establish a national framework to improve transparency in food pricing.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to establish a national framework to improve food price transparency"
+  },
+  "C-225": {
+    "summary": "This bill proposes amendments to the Criminal Code.",
+    "status_code": "Introduced",
+    "name": "An Act to amend the Criminal Code"
+  },
+  "C-228": {
+    "summary": "This bill seeks to amend the Department of Foreign Affairs, Trade and Development Act regarding prior review of treaties by Parliament.",
+    "status_code": "Introduced",
+    "name": "An Act to amend the Department of Foreign Affairs, Trade and Development Act (prior review of treaties by Parliament)"
+  },
+  "C-230": {
+    "summary": "This bill proposes amendments to the Financial Administration Act and related Acts concerning a debt forgiveness registry.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Financial Administration Act and to make consequential amendments to other Acts (debt forgiveness registry)"
+  },
+  "C-233": {
+    "summary": "This bill aims to amend the Export and Import Permits Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Export and Import Permits Act"
+  },
+  "C-232": {
+    "summary": "This bill proposes amendments to the Corrections and Conditional Release Act concerning maximum security offenders.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Corrections and Conditional Release Act (maximum security offenders)"
+  },
+  "C-231": {
+    "summary": "This bill aims to amend the Youth Criminal Justice Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Youth Criminal Justice Act"
+  },
+  "C-234": {
+    "summary": "This bill concerns the creation and awarding of a Living Donor Recognition Medal.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act respecting the establishment and award of a Living Donor Recognition Medal"
+  },
+  "C-235": {
+    "summary": "This bill seeks to amend the Criminal Code to increase parole ineligibility.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code (increasing parole ineligibility)"
+  },
+  "C-237": {
+    "summary": "This bill proposes amendments to the Fisheries Act regarding Atlantic groundfish fisheries.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Fisheries Act (Atlantic groundfish fisheries)"
+  },
+  "C-236": {
+    "summary": "This bill seeks to amend the Criminal Code, the Corrections and Conditional Release Act, and the Prisons and Reformatories Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code, the Corrections and Conditional Release Act and the Prisons and Reformatories Act"
+  },
+  "C-238": {
+    "summary": "This bill aims to amend the Criminal Code regarding restitution orders.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code (restitution orders)"
+  },
+  "C-239": {
+    "summary": "This bill proposes amendments to the Canada Health Act relating to accountability.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Canada Health Act (accountability)"
+  },
+  "C-240": {
+    "summary": "This bill seeks to amend the Criminal Code and other Acts, including changes to the Controlled Drugs and Substances Act.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Criminal Code, to make related amendments to the Corrections and Conditional Release Act and to amend the Controlled Drugs and Substances Act"
+  },
+  "C-243": {
+    "summary": "This bill proposes amendments to the Corrections and Conditional Release Act regarding parole review.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Corrections and Conditional Release Act (parole review)"
+  },
+  "C-241": {
+    "summary": "This bill seeks to establish a national strategy regarding flood and drought forecasting.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to establish a national strategy respecting flood and drought forecasting"
+  },
+  "C-244": {
+    "summary": "This bill proposes amendments to the Canadian Environmental Protection Act, 1999, and the Wrecked, Abandoned or Hazardous Vessels Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Canadian Environmental Protection Act, 1999 and the Wrecked, Abandoned or Hazardous Vessels Act"
+  },
+  "C-242": {
+    "summary": "This bill aims to amend the Criminal Code and the Department of Justice Act.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code and the Department of Justice Act"
+  },
+  "C-245": {
+    "summary": "This bill aims to amend the Canadian Multiculturalism Act to specify its non-application in Quebec.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Canadian Multiculturalism Act (non-application in Quebec)"
+  },
+  "C-248": {
+    "summary": "This bill concerns the holding of a Canada-wide conference on the subject of time change.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act respecting the holding of a pan-Canadian conference on time change"
+  },
+  "C-246": {
+    "summary": "This bill aims to amend the Criminal Code to implement consecutive sentences for sexual offences.",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act to amend the Criminal Code (consecutive sentences for sexual offences)"
+  },
+  "C-249": {
+    "summary": "This bill proposes amendments to the Employment Insurance Act concerning combined weeks of benefits and certain other benefits.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Employment Insurance Act (combined weeks of benefits rule and certain benefits)"
+  },
+  "C-247": {
+    "summary": "This bill proposes amendments to the Canada Labour Code.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Canada Labour Code"
+  },
+  "C-250": {
+    "summary": "This bill aims to amend the Canada Labour Code specifically concerning flight attendants.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Canada Labour Code (flight attendants)"
+  },
+  "C-251": {
+    "summary": "This bill proposes amendments to the Customs Act and the Customs Tariff regarding forced labour and child labour.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Customs Act and the Customs Tariff (forced labour and child labour)"
+  },
+  "C-252": {
+    "summary": "This bill aims to establish a national day of remembrance to honour Canadian Armed Forces members who have died in peacetime in Canada.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act respecting a national day of remembrance to honour Canadian Armed Forces members who have lost their lives in peacetime in Canada"
+  },
+  "C-253": {
+    "summary": "This bill seeks to develop a national framework for a guaranteed livable basic income.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to develop a national framework for a guaranteed livable basic income"
+  },
+  "C-254": {
+    "summary": "This bill aims to amend the Criminal Code to address the promotion of hatred against Indigenous peoples.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Criminal Code (promotion of hatred against Indigenous peoples)"
+  },
+  "C-255": {
+    "summary": "This bill aims to amend the Criminal Code regarding mischief targeting religious property.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Criminal Code (mischief — religious property)"
+  },
+  "C-257": {
+    "summary": "This bill proposes amendments to the Criminal Code concerning the promotion of terrorist activity or groups.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend the Criminal Code (promotion of terrorist activity or group)"
+  },
+  "S-202": {
+    "summary": "This bill aims to amend the Food and Drugs Act regarding warning labels on alcoholic beverages.",
+    "status_code": "SenateInCommittee",
+    "name": "An Act to amend the Food and Drugs Act (warning label on alcoholic beverages)"
+  },
+  "S-201": {
+    "summary": "This bill respects a national framework on sickle cell disease.",
+    "status_code": "SenateBillWaitingHouse",
+    "name": "An Act respecting a national framework on sickle cell disease"
+  },
+  "C-256": {
+    "summary": "This bill aims to amend certain Acts in relation to survivor pension benefits.",
+    "status_code": "OutsideOrderPrecedence",
+    "name": "An Act to amend certain Acts in relation to survivor pension benefits"
+  },
+  "S-203": {
+    "summary": "This bill aims to prohibit the promotion of alcoholic beverages.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to prohibit the promotion of alcoholic beverages"
+  },
+  "S-206": {
+    "summary": "This bill seeks to develop a national framework for a guaranteed livable basic income.",
+    "status_code": "SenateInCommittee",
+    "name": "An Act to develop a national framework for a guaranteed livable basic income"
+  },
+  "S-205": {
+    "summary": "This bill seeks to amend the Corrections and Conditional Release Act.",
+    "status_code": "SenateInCommittee",
+    "name": "An Act to amend the Corrections and Conditional Release Act"
+  },
+  "S-204": {
+    "summary": "This bill aims to establish a national framework on heart failure.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to establish a national framework on heart failure"
+  },
+  "S-207": {
+    "summary": "This bill aims to amend the Criminal Records Act, make consequential amendments to other Acts, and repeal a regulation.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Criminal Records Act, to make consequential amendments to other Acts and to repeal a regulation"
+  },
+  "S-208": {
+    "summary": "This bill aims to amend the Criminal Code (independence of the judiciary)",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Criminal Code (independence of the judiciary)"
+  },
+  "S-212": {
+    "summary": "This bill respects a national strategy for children and youth in Canada",
+    "status_code": "SenateInCommittee",
+    "name": "An Act respecting a national strategy for children and youth in Canada"
+  },
+  "S-211": {
+    "summary": "This bill respects a national framework on sports betting advertising",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act respecting a national framework on sports betting advertising"
+  },
+  "S-210": {
+    "summary": "This bill respects Ukrainian Heritage Month",
+    "status_code": "HouseAt2ndReading",
+    "name": "An Act respecting Ukrainian Heritage Month"
+  },
+  "S-209": {
+    "summary": "This bill aims to restrict young persons’ online access to pornographic material.",
+    "status_code": "SenateInCommittee",
+    "name": "An Act to restrict young persons’ online access to pornographic material"
+  },
+  "S-216": {
+    "summary": "This bill declares the Chignecto Isthmus Dykeland System and related works to be for the general advantage of Canada.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to declare the Chignecto Isthmus Dykeland System and related works to be for the general advantage of Canada"
+  },
+  "S-213": {
+    "summary": "This bill aims to amend the Canada Elections Act (demographic information)",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Canada Elections Act (demographic information)"
+  },
+  "S-217": {
+    "summary": "This bill aims to amend the Canada Revenue Agency Act (reporting on unpaid income tax)",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Canada Revenue Agency Act (reporting on unpaid income tax)"
+  },
+  "S-214": {
+    "summary": "This bill aims to amend the Special Economic Measures Act (disposal of foreign state assets)",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Special Economic Measures Act (disposal of foreign state assets)"
+  },
+  "S-215": {
+    "summary": "This bill respecting National Immigration Month",
+    "status_code": "SenateInCommittee",
+    "name": "An Act respecting National Immigration Month"
+  },
+  "S-218": {
+    "summary": "This bill aims to amend the Constitution Act, 1982 (notwithstanding clause)",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Constitution Act, 1982 (notwithstanding clause)"
+  },
+  "S-221": {
+    "summary": "This bill provides for the recognition of the Canada jay as the national bird of Canada.",
+    "status_code": "SenateInCommittee",
+    "name": "An Act to provide for the recognition of the Canada jay as the national bird of Canada"
+  },
+  "S-220": {
+    "summary": "This bill designates the month of March as Hellenic Heritage Month",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to designate the month of March as Hellenic Heritage Month"
+  },
+  "S-219": {
+    "summary": "This bill aims to establish Judicial Independence Day.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to establish Judicial Independence Day"
+  },
+  "S-222": {
+    "summary": "This bill aims to amend the Canada Elections Act and the Regulation Adapting the Canada Elections Act for the Purposes of a Referendum",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Canada Elections Act and the Regulation Adapting the Canada Elections Act for the Purposes of a Referendum"
+  },
+  "S-223": {
+    "summary": "This bill aims to amend the Royal Canadian Mounted Police Act.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Royal Canadian Mounted Police Act"
+  },
+  "S-225": {
+    "summary": "This bill aims to establish National Thanadelthur Day.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to establish National Thanadelthur Day"
+  },
+  "S-224": {
+    "summary": "This bill aims to amend the Director of Public Prosecutions Act.",
+    "status_code": "SenateAt2ndReading",
+    "name": "An Act to amend the Director of Public Prosecutions Act"
+  }
+}

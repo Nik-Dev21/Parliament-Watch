@@ -1,0 +1,120 @@
+import React from 'react';
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { format } from "date-fns";
+import { ImageIcon } from "lucide-react";
+
+export default function TopicCard({ topic, featured, onClick }) {
+  const totalSources = (topic.source_count_left || 0) + (topic.source_count_centre || 0) + (topic.source_count_right || 0);
+  
+  const leftPercent = totalSources > 0 ? ((topic.source_count_left || 0) / totalSources) * 100 : 0;
+  const centrePercent = totalSources > 0 ? ((topic.source_count_centre || 0) / totalSources) * 100 : 0;
+  const rightPercent = totalSources > 0 ? ((topic.source_count_right || 0) / totalSources) * 100 : 0;
+
+  return (
+    <Card 
+      className="border-2 border-gray-200 hover:border-black transition-all cursor-pointer group overflow-hidden"
+      onClick={onClick}
+    >
+      {topic.thumbnail_url ? (
+        <div className={`relative bg-gray-100 ${featured ? 'h-80' : 'h-48'}`}>
+          <img 
+            src={topic.thumbnail_url}
+            alt={topic.headline}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.classList.add('flex', 'items-center', 'justify-center');
+            }}
+          />
+          <div className="absolute inset-0 flex items-center justify-center" style={{ display: 'none' }}>
+            <ImageIcon className="w-12 h-12 text-gray-300" />
+          </div>
+        </div>
+      ) : (
+        <div className={`bg-gray-100 ${featured ? 'h-80' : 'h-48'} flex items-center justify-center`}>
+          <ImageIcon className="w-12 h-12 text-gray-300" />
+        </div>
+      )}
+
+      <div className="p-6">
+        <h2 className={`font-bold text-black mb-2 group-hover:underline ${featured ? 'text-3xl' : 'text-xl'}`}>
+          {topic.headline}
+        </h2>
+
+        {topic.published_date && (
+          <div className="text-sm text-gray-600 mb-3">
+            {format(new Date(topic.published_date), 'MMM d, yyyy')}
+          </div>
+        )}
+
+        {!featured && topic.ai_summary && (
+          <p className="text-gray-700 mb-4 line-clamp-3 text-sm">
+            {topic.ai_summary}
+          </p>
+        )}
+
+        {featured && topic.ai_summary && (
+          <p className="text-gray-700 mb-4 line-clamp-4">
+            {topic.ai_summary}
+          </p>
+        )}
+
+        {totalSources > 0 && (
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                {totalSources} {totalSources === 1 ? 'Source' : 'Sources'}
+              </span>
+              <div className="flex items-center gap-3 text-xs">
+                {topic.source_count_left > 0 && (
+                  <span className="font-bold political-left">{topic.source_count_left} L</span>
+                )}
+                {topic.source_count_centre > 0 && (
+                  <span className="font-bold political-centre">{topic.source_count_centre} C</span>
+                )}
+                {topic.source_count_right > 0 && (
+                  <span className="font-bold political-right">{topic.source_count_right} R</span>
+                )}
+              </div>
+            </div>
+            <div className="h-2 bg-gray-100 rounded-full overflow-hidden flex">
+              {leftPercent > 0 && (
+                <div 
+                  className="h-full bg-political-left"
+                  style={{ width: `${leftPercent}%` }}
+                />
+              )}
+              {centrePercent > 0 && (
+                <div 
+                  className="h-full bg-political-centre"
+                  style={{ width: `${centrePercent}%` }}
+                />
+              )}
+              {rightPercent > 0 && (
+                <div 
+                  className="h-full bg-political-right"
+                  style={{ width: `${rightPercent}%` }}
+                />
+              )}
+            </div>
+          </div>
+        )}
+
+        {topic.tags && topic.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {topic.tags.slice(0, 3).map((tag, idx) => (
+              <Badge 
+                key={idx} 
+                variant="outline" 
+                className="border-black text-black font-medium text-xs"
+              >
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+}

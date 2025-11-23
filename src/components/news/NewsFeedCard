@@ -1,0 +1,109 @@
+import React from 'react';
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { format } from "date-fns";
+import { ExternalLink } from "lucide-react";
+
+export default function NewsFeedCard({ article, onClick }) {
+  const getBiasColor = (bias) => {
+    if (bias === 'Left') return 'bg-political-left';
+    if (bias === 'Right') return 'bg-political-right';
+    return 'bg-political-centre';
+  };
+
+  const getBiasTextColor = (bias) => {
+    if (bias === 'Left') return 'political-left';
+    if (bias === 'Right') return 'political-right';
+    return 'political-centre';
+  };
+
+  return (
+    <Card 
+      className="border-2 border-gray-200 hover:border-black transition-all cursor-pointer group"
+      onClick={onClick}
+    >
+      <div className="p-6">
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-black mb-2 group-hover:underline">
+              {article.title}
+            </h2>
+            <div className="flex items-center gap-3 text-sm text-gray-600 mb-3">
+              <span className="font-bold">{article.source}</span>
+              <span>•</span>
+              <span>
+                {article.published_date 
+                  ? format(new Date(article.published_date), 'MMM d, yyyy')
+                  : format(new Date(article.created_date), 'MMM d, yyyy')}
+              </span>
+            </div>
+          </div>
+          {article.url && (
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-gray-400 hover:text-black transition-colors"
+            >
+              <ExternalLink className="w-5 h-5" />
+            </a>
+          )}
+        </div>
+
+        <p className="text-gray-700 mb-4 line-clamp-3">
+          {article.summary}
+        </p>
+
+        {article.bias_rating && (
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                Political Lean
+              </span>
+            </div>
+            <div className="h-2 bg-gray-100 rounded-full overflow-hidden flex">
+              <div 
+                className={`h-full ${article.bias_rating === 'Left' ? getBiasColor('Left') : 'bg-gray-200'}`}
+                style={{ width: '33.33%' }}
+              />
+              <div 
+                className={`h-full ${article.bias_rating === 'Centre' ? getBiasColor('Centre') : 'bg-gray-200'}`}
+                style={{ width: '33.33%' }}
+              />
+              <div 
+                className={`h-full ${article.bias_rating === 'Right' ? getBiasColor('Right') : 'bg-gray-200'}`}
+                style={{ width: '33.33%' }}
+              />
+            </div>
+            <div className="flex justify-between mt-1 text-xs">
+              <span className={article.bias_rating === 'Left' ? 'font-bold political-left' : 'text-gray-400'}>
+                Left
+              </span>
+              <span className={article.bias_rating === 'Centre' ? 'font-bold political-centre' : 'text-gray-400'}>
+                Centre
+              </span>
+              <span className={article.bias_rating === 'Right' ? 'font-bold political-right' : 'text-gray-400'}>
+                Right
+              </span>
+            </div>
+          </div>
+        )}
+
+        {article.topics && article.topics.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {article.topics.slice(0, 5).map((topic, idx) => (
+              <Badge 
+                key={idx} 
+                variant="outline" 
+                className="border-black text-black font-medium"
+              >
+                {topic}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+}
