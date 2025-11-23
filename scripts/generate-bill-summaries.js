@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,10 +7,9 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_FILE = path.join(__dirname, '../src/data/bill_summaries.json');
 
-// Initialize Claude
-const anthropic = new Anthropic({
-    apiKey: process.env.ANTHROPIC_API_KEY,
-});
+// Initialize Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 async function fetchBillsList() {
     console.log('Fetching bills list from OpenParliament...');
@@ -65,48 +64,45 @@ async function generateSummaries() {
         // Prepare the prompt
         const promptList = billsForAI.join('\n');
 
-        const systemPrompt = `
+        const prompt = `
       You are a political analyst. I will provide a list of Canadian federal bills.
       
       For EACH bill in the list, write a 2-3 sentence plain-language summary of what the bill aims to do, based on its title.
       The summary should be neutral, factual, and easy to understand.
       
-        const prompt = `Bills: \n${ billsForAI.join('\n')
-    }`;
+      Return ONLY a valid JSON object where the key is the bill number (e.g., "C-2") and the value is the summary string.
+      Do not include any markdown formatting.
 
-        console.log('Generating summaries with Claude...');
-        const msg = await anthropic.messages.create({
-            model: "claude-3-haiku-20240307",
-            max_tokens: 1024,
-            system: "You are a legal expert summarizing Canadian parliamentary bills for the general public. For EACH bill in the list, write a 2-3 sentence plain-language summary of what the bill aims to do, based on its title. The summary should be neutral, factual, and easy to understand. Return ONLY a valid JSON object where the key is the bill number (e.g., \"C-2\") and the value is the summary string. Do not include any markdown formatting.",
-            messages: [
-                { role: "user", content: prompt }
-            ]
+      Bills:
+      ${promptList}
+    `;
+
+        console.log('Generating summaries with Gemini...');
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        let text = response.text();
+
+        text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+        const summaries = JSON.parse(text);
+
+        // Merge summaries into billsData
+        Object.keys(summaries).forEach(number => {
+            if (billsData[number]) {
+                billsData[number].summary = summaries[number];
+            }
         });
 
-        let text = msg.content[0].text;
+        // Ensure directory exists
+        await fs.mkdir(path.dirname(OUTPUT_FILE), { recursive: true });
 
-        text = text.replace(/```json / g, '').replace(/```/g, '').trim();
-    const summaries = JSON.parse(text);
+        // Save to file
+        await fs.writeFile(OUTPUT_FILE, JSON.stringify(billsData, null, 2));
+        console.log(`Successfully saved data for ${Object.keys(billsData).length} bills to ${OUTPUT_FILE}`);
 
-    // Merge summaries into billsData
-    Object.keys(summaries).forEach(number => {
-        if (billsData[number]) {
-            billsData[number].summary = summaries[number];
-        }
-    });
-
-    // Ensure directory exists
-    await fs.mkdir(path.dirname(OUTPUT_FILE), { recursive: true });
-
-    // Save to file
-    await fs.writeFile(OUTPUT_FILE, JSON.stringify(billsData, null, 2));
-    console.log(`Successfully saved data for ${Object.keys(billsData).length} bills to ${OUTPUT_FILE}`);
-
-} catch (error) {
-    console.error('Error generating data:', error);
-    process.exit(1);
-}
+    } catch (error) {
+        console.error('Error generating data:', error);
+        process.exit(1);
+    }
 }
 
 generateSummaries();

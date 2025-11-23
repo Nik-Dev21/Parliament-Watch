@@ -1,5 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-import Anthropic from 'https://esm.sh/@anthropic-ai/sdk@0.18.0'
+import { GoogleGenerativeAI } from 'https://esm.sh/@google/generative-ai'
 
 const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
@@ -195,13 +195,14 @@ Deno.serve(async (req) => {
     try {
         const sbUrl = Deno.env.get('SUPABASE_URL')
         const sbKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
-        const anthropicKey = Deno.env.get('ANTHROPIC_API_KEY')
+        const geminiKey = Deno.env.get('GEMINI_API_KEY')
 
-        if (!sbUrl || !sbKey || !anthropicKey) {
-            throw new Error('Missing environment variables')
-        }
+        if (!sbUrl || !sbKey) throw new Error('Missing Supabase credentials')
+        if (!geminiKey) throw new Error('Missing GEMINI_API_KEY')
+
         const supabase = createClient(sbUrl, sbKey)
-        const anthropic = new Anthropic({ apiKey: anthropicKey })
+        const genAI = new GoogleGenerativeAI(geminiKey)
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
 
         log('Fetching active news sources...')
 
@@ -261,69 +262,58 @@ Deno.serve(async (req) => {
 
         log(`Total articles collected: ${allArticles.length}`)
 
-        // Step 1: Group articles by topic using Claude
+        // Step 1: Group articles by topic using Gemini
         log('Grouping articles by topic...')
 
         // Limit to 300 articles for grouping prompt to avoid token limits, but prioritize recent ones
         // Actually, we should try to send as many as possible.
         // Let's just send titles to save tokens.
-        const articleSummaries = allArticles.map((a: any, i: number) =>
-            `${i + 1}. ${a.title} (${a.source.name}) - ${a.description?.substring(0, 150)}...`
+        const articleSummaries = allArticles.map((a, i) =>
+            `${i}. [${a.source.name}] ${a.title}`
         ).join('\n')
 
-        log(`Generating grouping for ${allArticles.length} articles...`)
-
-        const groupingSystemPrompt = `
+        const groupingPrompt = `
 You are analyzing news headlines from Canadian sources with different political biases.
 Your job is to find stories that are covered by MULTIPLE sources and group them together.
 
-Instructions:
-1. Read the list of articles.
-2. Identify stories that are the SAME event/topic covered by at least 2 different sources.
-3. Ignore unique stories covered by only 1 source.
-4. For each group, provide:
-    - "title": A neutral, descriptive title for the event.
-    - "article_indices": The numbers (1-based) of the articles in this group.
-    - "bias_summary": A brief note on how different sources framed it (optional).
+CRITICAL INSTRUCTIONS:
+1. Look for the SAME specific event/story across different sources
+2. Be VERY generous in grouping - if articles mention the same person, event, place, or topic, group them together
+3. Each group MUST have at least 2 articles from DIFFERENT sources
+4. Each group MUST have sources from at least 2 different bias categories (Left, Center, Right)
+5. Create as MANY groups as possible - aim for 50+ groups
+6. Don't be too strict - similar stories about the same topic should be grouped
 
-Output format: JSON array of objects.
-Example:
+Examples of what should be grouped together:
+- "Trump signs bill" + "President releases Epstein files" + "White House approves document release" = SAME STORY
+- "Trade barriers dropped" + "Provinces agree on trade" + "Interprovincial trade deal" = SAME STORY
+- "Calgary man arrested" + "FBI operation targets Canadian" + "Drug lord investigation" = SAME STORY
+
+Articles:
+${articleSummaries}
+
+Return JSON array with as many groups as possible:
 [
-    { "title": "Bill C-11 Passes Senate", "article_indices": [1, 5, 12], "bias_summary": "CBC focused on..." }
+  {
+    "topic": "Short descriptive topic name",
+    "articleIndexes": [0, 3, 7, 12, 15],
+    "headline": "Neutral headline"
+  }
 ]
+
+Return ONLY the JSON array, no markdown.
 `
 
-        const groupingMsg = await anthropic.messages.create({
-            model: "claude-3-haiku-20240307",
-            max_tokens: 4096,
-            system: groupingSystemPrompt + "\n\nIMPORTANT: Output ONLY the raw JSON array. Do not use markdown blocks. Do not include any explanatory text.",
-            messages: [
-                { role: "user", content: `Articles:\n${articleSummaries}` },
-                { role: "assistant", content: "[" }
-            ]
-        })
-
-        const groupingText = "[" + groupingMsg.content[0].text
+        const groupingResult = await model.generateContent(groupingPrompt)
+        const groupingText = groupingResult.response.text().replace(/```json/g, '').replace(/```/g, '').trim()
 
         let groups: any[] = []
         try {
-            // Attempt to find the JSON array
-            const start = groupingText.indexOf('[')
-            const end = groupingText.lastIndexOf(']')
-
-            if (start !== -1 && end !== -1) {
-                const jsonStr = groupingText.substring(start, end + 1)
-                groups = JSON.parse(jsonStr)
-            } else {
-                throw new Error("No JSON brackets found")
-            }
+            groups = JSON.parse(groupingText)
             log(`Identified ${groups.length} topics with 2+ sources`)
         } catch (e: any) {
-            console.error("JSON Parse Error:", e.message)
-            console.error("Raw Output:", groupingText)
-            // Fallback: Return empty array instead of crashing
-            groups = []
-            log(`Failed to group articles. Returning empty list to prevent crash.`)
+            log(`Failed to parse grouping: ${groupingText.substring(0, 200)}`)
+            throw new Error('Failed to group articles')
         }
 
         // Step 2: Process each topic group
@@ -371,7 +361,7 @@ Example:
             }
 
             // Analyze the topic
-            const topicSystemPrompt = `
+            const topicPrompt = `
 You are a STRICT Senior News Editor. Your job is to write a comprehensive, neutral news summary based on multiple sources.
 
 CRITICAL FORMATTING RULES:
@@ -388,6 +378,9 @@ Paragraph 4 (Additional Context): Provide background info, statistics, or histor
 Paragraph 5 (Counterpoint / Opposition): Present disagreements, criticisms, or alternative viewpoints.
 Paragraph 6 (What Happens Next): Describe future steps, expected outcomes, or implications.
 
+Analyze this Canadian news topic covered by multiple sources:
+${uniqueArticles.map((a: any) => `[${a.source.name}] ${a.description || a.title}`).join('\n\n')}
+
 Provide JSON:
 {
   "ai_summary": "The full 6-paragraph summary text here. Ensure double newlines \\n\\n between paragraphs.",
@@ -402,16 +395,8 @@ Return ONLY JSON, no markdown.
 `
 
             try {
-                const analysisMsg = await anthropic.messages.create({
-                    model: "claude-3-haiku-20240307",
-                    max_tokens: 1024,
-                    system: topicSystemPrompt,
-                    messages: [
-                        { role: "user", content: `Analyze this Canadian news topic covered by multiple sources:\n${uniqueArticles.map((a: any) => `[${a.source.name}] ${a.description || a.title}`).join('\n\n')}` }
-                    ]
-                })
-
-                const analysisText = analysisMsg.content[0].text.replace(/```json/g, '').replace(/```/g, '').trim()
+                const analysisResult = await model.generateContent(topicPrompt)
+                const analysisText = analysisResult.response.text().replace(/```json/g, '').replace(/```/g, '').trim()
 
                 let analysis
                 try {
