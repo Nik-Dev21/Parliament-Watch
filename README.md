@@ -30,7 +30,7 @@ Parliament Watch is a comprehensive web platform that brings Canadian federal po
 - Party affiliation with color-coded badges
 
 ### 🤖 **AI Parliamentary Assistant**
-- Intelligent chatbot powered by Claude
+- Intelligent chatbot powered by Gemini
 - Answers questions about bills, MPs, voting records, and parliamentary procedures
 - Grounded in real-time data from OpenParliament API
 - Multi-turn conversations with context awareness
@@ -44,7 +44,7 @@ Parliament Watch is a comprehensive web platform that brings Canadian federal po
 
 - **Node.js** 18+ and npm
 - **Supabase** account (free tier works)
-- **Claude API key**
+- **Gemini API key**
 
 ### Installation
 
@@ -69,12 +69,11 @@ Parliament Watch is a comprehensive web platform that brings Canadian federal po
    ```env
    VITE_SUPABASE_URL=your_supabase_project_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   VITE_CLAUDE_API_KEY=your_claude_api_key
+   VITE_GEMINI_API_KEY=your_GEMINI_api_key
    ```
 
    **Where to find these:**
    - **Supabase**: Dashboard → Project Settings → API
-   - **Claude API**: [Claude API](https://claude.ai/)
 
 4. **Set up the database**
 
